@@ -39,12 +39,6 @@ public class MainPage {
             webDriver.findElement(DownOrderButton).click();
         }
     }
-    //метод нажимает нижнюю кнопку Заказать, предварительно скроля к ней
-    //public void clickDownOrderButton() {
-        //WebElement element = webDriver.findElement(DownOrderButton);
-        //((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
-        //webDriver.findElement(DownOrderButton).click();
-    //}
     //метож жмет кнопку принятия кук
     public void cookieAgreeButtonClick() {
         webDriver.findElement(cookieConfirmButton).click();
