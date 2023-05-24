@@ -16,13 +16,13 @@ import java.util.concurrent.TimeUnit;
 import static ru.praktikum.selenium.config.AppConfig.APP_URL;
 
 @RunWith(Parameterized.class)
-public class testAnswers {
+public class TestAnswers {
     private final int index;
     private final String text;
     WebDriver webDriver;
     MainPage mainPage;
 
-    public testAnswers(String text,int index) {
+    public TestAnswers(String text,int index) {
         this.index = index;
         this.text = text;
     }

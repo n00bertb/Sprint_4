@@ -13,9 +13,9 @@ public class MainPage {
     //локатор для списка вопросов-ответов
     private By ListOfQuestions = By.className("Home_FAQ__3uVm4");
     //локатор верхней кнопки Заказать, та что в хедере
-    private By UpOrderButton = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
+    private By UpOrderButton = By.xpath(".//*[@class='Header_Nav__AGCXC']/*[text()='Заказать']");
     //локатор нижней кнопки Заказать
-    private By DownOrderButton = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
+    private By DownOrderButton = By.xpath(".//*[@class='Home_FinishButton__1_cWm']/*[text()='Заказать']");
     //локатор кнопки подтверждения кук, если их не принять то в фаерфоксе будут падать тесты
     private By cookieConfirmButton = By.xpath(".//*[text()='да все привыкли']");
     //метод скролит к блоку с вопросами
@@ -32,15 +32,19 @@ public class MainPage {
         return webDriver.findElement(By.id(String.format("accordion__panel-%d",index))).getText();
     }
     //метод нажимает верхнюю кнопку Заказать
-    public void clickUpOrderButton() {
-        webDriver.findElement(UpOrderButton).click();
+    public void clickOrderButton(boolean button) {
+        if (button){
+            webDriver.findElement(UpOrderButton).click();
+        }else{
+            webDriver.findElement(DownOrderButton).click();
+        }
     }
     //метод нажимает нижнюю кнопку Заказать, предварительно скроля к ней
-    public void clickDownOrderButton() {
-        WebElement element = webDriver.findElement(DownOrderButton);
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
-        webDriver.findElement(DownOrderButton).click();
-    }
+    //public void clickDownOrderButton() {
+        //WebElement element = webDriver.findElement(DownOrderButton);
+        //((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
+        //webDriver.findElement(DownOrderButton).click();
+    //}
     //метож жмет кнопку принятия кук
     public void cookieAgreeButtonClick() {
         webDriver.findElement(cookieConfirmButton).click();
